@@ -810,12 +810,15 @@
                                                 <models:Language Text="Chinesisch" CultureCode="zh-CN" />
                                             </ComboBox>
                                             <Button Content="{x:Static p:Resources.gen_add}" Click="ClickAddLanguageVers" IsEnabled="{Binding ElementName=LanguagesListVers, Path=SelectedItem, Converter={StaticResource EmptyToBool}, ConverterParameter=true}" />
-                                            <Button  Content="{x:Static p:Resources.gen_remove}" Click="ClickRemoveLanguageVers" IsEnabled="{Binding ElementName=SupportedLanguagesVers, Path=SelectedItem, Converter={StaticResource EmptyToBool}, ConverterParameter=true}" />
+                                            <Button Content="{x:Static p:Resources.gen_remove}" Click="ClickRemoveLanguageVers" IsEnabled="{Binding ElementName=SupportedLanguagesVers, Path=SelectedItem, Converter={StaticResource EmptyToBool}, ConverterParameter=true}" />
                                         </StackPanel>
                                     </HeaderedContentControl>
                                     <HeaderedContentControl Header="{x:Static p:Resources.tgen_lang_def}">
                                         <ComboBox ItemsSource="{Binding Languages}" SelectedIndex="{Binding DefaultLanguageIndex}" SelectedValue="{Binding DefaultLanguage}" SelectedValuePath="CultureCode" DisplayMemberPath="Text"></ComboBox>
                                     </HeaderedContentControl>
+
+                                    <Button Content="{x:Static p:Resources.tapps_openv}" Click="ClickOpenViewerApp" Margin="5" />
+                                    <Button Content="{x:Static p:Resources.menu_export_in_ets}" Click="ClickExportInEts" Margin="5" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>

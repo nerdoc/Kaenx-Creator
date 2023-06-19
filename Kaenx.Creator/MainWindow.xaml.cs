@@ -495,8 +495,6 @@ namespace Kaenx.Creator
 
         private void ClickOpenViewer(object sender, RoutedEventArgs e)
         {
-            if(MessageBoxResult.Cancel == MessageBox.Show(Properties.Messages.main_open_viewer, Properties.Messages.main_open_viewer_title, MessageBoxButton.OKCancel, MessageBoxImage.Question)) return;
-            Models.Application app = (Models.Application)AppList.SelectedItem;
             Models.AppVersionModel model = (sender as MenuItem).DataContext as Models.AppVersionModel;
             Models.AppVersion ver;
             if(model == SelectedVersion)
@@ -505,6 +503,22 @@ namespace Kaenx.Creator
             } else {
                 ver = AutoHelper.GetAppVersion(General, model);
             }
+            Models.Application app = General.Applications.Single(a => a.Versions.Any(v => v.NameText == model.NameText));
+            DoOpenViewer(app, ver);
+        }
+
+        private void ClickOpenViewerApp(object sender, RoutedEventArgs e)
+        {
+            Models.AppVersionModel model = (sender as MenuItem).DataContext as Models.AppVersionModel;
+            Models.AppVersion ver = SelectedVersion.Model;
+            Models.Application app = General.Applications.Single(a => a.Versions.Any(v => v.NameText == model.NameText));
+            DoOpenViewer(app, ver);
+        }
+
+        private void DoOpenViewer(Models.Application app, Models.AppVersion ver)
+        {
+            if(MessageBoxResult.Cancel == MessageBox.Show(Properties.Messages.main_open_viewer, Properties.Messages.main_open_viewer_title, MessageBoxButton.OKCancel, MessageBoxImage.Question)) return;
+            
             AutoHelper.CheckIds(ver);
 
             ObservableCollection<Models.PublishAction> actions = new ObservableCollection<Models.PublishAction>();
@@ -1040,6 +1054,12 @@ namespace Kaenx.Creator
             ClearHelper.ResetParameterIds(SelectedVersion.Model);
         }
 
+        private void ClickExportInEts(object sender, RoutedEventArgs e)
+        {
+            
+            EtsExporter ex = new EtsExporter(General, SelectedVersion, GetAssemblyPath(SelectedVersion.Namespace));
+            ex.Export();
+        }
 
         private void ClickSignFolder(object sender, RoutedEventArgs e)
         {

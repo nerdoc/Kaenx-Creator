@@ -1409,8 +1409,16 @@
     <value>Sign</value>
     <comment/>
   </data>
+  <data name="menu_dev" xml:space="preserve">
+    <value>Development</value>
+    <comment/>
+  </data>
   <data name="menu_sign_folder" xml:space="preserve">
     <value>Folder</value>
+    <comment/>
+  </data>
+  <data name="menu_export_in_ets" xml:space="preserve">
+    <value>Export in existing ETS Project</value>
     <comment/>
   </data>
 </root>

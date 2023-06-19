@@ -2577,9 +2577,21 @@ namespace Kaenx.Creator.Properties {
             }
         }
         
+        public static string menu_dev {
+            get {
+                return ResourceManager.GetString("menu_dev", resourceCulture);
+            }
+        }
+        
         public static string menu_sign_folder {
             get {
                 return ResourceManager.GetString("menu_sign_folder", resourceCulture);
+            }
+        }
+
+        public static string menu_export_in_ets {
+            get {
+                return ResourceManager.GetString("menu_export_in_ets", resourceCulture);
             }
         }
     }

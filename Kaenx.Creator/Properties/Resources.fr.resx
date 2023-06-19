@@ -1409,6 +1409,10 @@
     <value>Sign</value>
     <comment/>
   </data>
+  <data name="menu_dev" xml:space="preserve">
+    <value>Development</value>
+    <comment/>
+  </data>
   <data name="menu_sign_folder" xml:space="preserve">
     <value>Folder</value>
     <comment/>
